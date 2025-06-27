@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Woodhill MTB Trails</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body, #map {
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+    var map = L.map('map').setView([-36.7983, 174.3911], 15); // Woodhill MTB Park
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    }).addTo(map);
+
+    var popupContent = "<b>Woodhill MTB Park</b><br><img src='https://www.woodhillmountainbikepark.co.nz/uploads/1/2/4/1/124163830/published/img-7993.jpg?1584301812' width='200'><br><a href='https://www.youtube.com/watch?v=FPSTvh6gXoo' target='_blank'>Watch ride video</a>";
+
+    L.marker([-36.7983, 174.3911]).addTo(map)
+      .bindPopup(popupContent)
+      .openPopup();
+  </script>
+</body>
+</html>
